@@ -23,13 +23,13 @@ export class ListproposalsComponent implements OnInit {
 
         console.log('Llamada desde listproposals.component.ts ');
         //this.proposals = this.getAll();
-        this.getAll()
-            .subscribe(
-            proposals => this.proposals = proposals,
-            err => {
-                // Log errors if any
-                console.log(err);
-            });
+        // this.getAll()
+        //     .subscribe(
+        //     proposals => this.proposals = proposals,
+        //     err => {
+        //         // Log errors if any
+        //         console.log(err);
+        //     });
     }
 
     onSubmit({value, valid}: { value: Proposal, valid: boolean }) {
@@ -43,9 +43,9 @@ export class ListproposalsComponent implements OnInit {
             });
     }
 
-    getAll(): Observable<Proposal[]> {
-        return this.http.get(this.baseUrl + '/proposal/listproposals').map(this.mapProposal);
-    }
+    // getAll(): Observable<Proposal[]> {
+    //     return this.http.get(this.baseUrl + '/proposal/listproposals').map(this.mapProposal);
+    // }
 
     mapProposal(response: Response): Proposal[] {
         return response.json().content;
@@ -61,7 +61,7 @@ export interface Proposal {
     links: string;
 }
 
-//var PROPOSALS: Proposal[] = [
+// var PROPOSALS: Proposal[] = [
 //
 //    {
 //        "id": "10",
@@ -96,4 +96,4 @@ export interface Proposal {
 //        "links": ""
 //    }
 //
-//]
+// ]
